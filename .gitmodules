@@ -1,0 +1,3 @@
+[submodule "vfpu-for-AI"]
+	path = vfpu-for-AI
+	url = https://github.com/jlong299/vfpu-for-AI.git
