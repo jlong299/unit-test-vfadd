@@ -6,6 +6,7 @@ import mill.scalalib.TestModule.ScalaTest
 import scalalib._
 // support BSP
 import mill.bsp._
+import $file.{vfpuBuild => `vfpu-for-AI`.build}
 
 object ivys{
   val sv = "2.13.13"
@@ -29,4 +30,9 @@ object top extends ScalaModule  {
 
   override def scalacPluginIvyDeps = Agg(ivys.chisel3Plugin)
 
+  override def moduleDeps = Seq(vfpu)
+}
+
+object vfpu extends vfpuBuild.VfpuModule {
+  override def millSourcePath = os.pwd / "vfpu-for-AI"
 }
